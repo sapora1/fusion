@@ -23,7 +23,7 @@ const rows = [
 export default function Leaderboard() {
   return (
     <div
-      style={{ backgroundColor: "#498EC5", width: "100vw", height: "100vh" }}
+      style={{ backgroundColor: "#498EC5", width: "100vw", minHeight: "100vh" }}
     >
       <NavBar />
       <Card

@@ -27,13 +27,16 @@ export default function Firstpage(props) {
         }
       )
       .then((response) => {
-        console.log(response.data[0]);
+        console.log(response.data.result.email);
 
         console.log(response.data);
+
         if (response.data.length === 0) {
           alert("Wrong Credentials");
         } else {
           console.log("Login Successful");
+          localStorage.setItem("email", response.data.result.email);
+          localStorage.setItem("name", response.data.result.name);
           router.push("/Main");
         }
       })
