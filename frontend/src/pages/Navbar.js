@@ -5,7 +5,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import DataObjectIcon from "@mui/icons-material/DataObject";
 import { Chip } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 export default function NavBar() {
+  const router = useRouter();
+  const [profile, setprofile] = useState("");
+
+  useEffect(() => {
+    setprofile(localStorage.getItem("name"));
+    console.log(profile);
+    if (localStorage.getItem("name") == undefined) router.push("/");
+  }, []);
+
   return (
     <Navbar
       collapseOnSelect
@@ -13,9 +24,6 @@ export default function NavBar() {
       style={{ backgroundColor: "#000030 " }}
       variant="dark"
     >
-      {/* <Chip style={{marginLeft:'5px', backgroundColor: 'white'}} icon={<DataObjectIcon />} label="" /> */}
-
-      {/* <Navbar.Brand href="/" style={{marginLeft:'5px'}}>FUSION</Navbar.Brand> */}
       <Container>
         <Chip
           style={{
@@ -28,7 +36,7 @@ export default function NavBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/Main">Home</Nav.Link>
             <Nav.Link href="/Leaderboard">Leaderboard</Nav.Link>
             <Nav.Link href="#pricing">Cources</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
@@ -44,7 +52,7 @@ export default function NavBar() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="/Profile">Rahul</Nav.Link>
+            <Nav.Link href="/Profile">{profile}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

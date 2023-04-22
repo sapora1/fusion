@@ -43,7 +43,9 @@ export default function Secondpage() {
   };
 
   return (
-    <div style={{ backgroundColor: "#498EC5", width: "100vw", height: "100%" }}>
+    <div
+      style={{ backgroundColor: "#498EC5", width: "100vw", minHeight: "100vh" }}
+    >
       <NavBar />
       <Grid container columns={{ xs: 2, md: 12 }}>
         <Grid item xs={6} style={{ backgroundColor: "black" }}>
