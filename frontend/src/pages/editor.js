@@ -5,8 +5,9 @@ import Textarea from '@mui/joy/Textarea'
 import axios from 'axios'
 import NavBar from './components/inc/Navbar'
 import { Grid } from '@mui/material'
+import Particle from './components/home/particle'
 
-export default function Secondpage() {
+export default function Editor() {
   const [inputStr, setcode] = useState(``)
 
   const handleSubmit = () => {
@@ -44,8 +45,9 @@ export default function Secondpage() {
 
   return (
     <div
-      style={{ backgroundColor: '#498EC5', width: '100vw', minHeight: '100vh' }}
+      style={{ width: '100vw', minHeight: '100vh' }}
     >
+      <Particle style={{ "position": "fixed !important", "backgroundRepeat": "no-repeat !important", "backgroundSize": "cover !important", "width": "100%", "height": "100%" }} />
       <NavBar />
       <Grid container columns={{ xs: 2, md: 12 }}>
         <Grid item xs={6} style={{ backgroundColor: 'black' }}>
